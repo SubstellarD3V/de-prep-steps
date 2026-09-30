@@ -1,0 +1,4 @@
+git clone https://github.com/SubstellarD3V/de-prep-steps.git 
+git status 
+git add <file-name>
+git commit -m "message" 
