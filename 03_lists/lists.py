@@ -75,28 +75,28 @@ def get_items_longer_than(strs, max_len):
         return corlist
 
 # ❗ Remember to change @skip_test to @run_test!
-
+@run_test
 def get_items_longer_than_should_return_empty_list_when_no_strings():
     assert get_items_longer_than([], 1) == [], format_err_msg(
         [], get_items_longer_than([], 1)
     )
 
 
-
+@run_test
 def get_items_longer_than_should_return_all_strings_longer_than_max_len():
     assert get_items_longer_than(["a", "bb"], 0) == ["a", "bb"], format_err_msg(
         ["a", "bb"], get_items_longer_than(["a", "bb"], 0)
     )
 
 
-
+@run_test
 def get_items_longer_than_should_exclude_strings_shorter_than_max_len():
     assert get_items_longer_than(["a", "bb"], 3) == [], format_err_msg(
         [], get_items_longer_than(["a", "bb"], 3)
     )
 
 
-
+@run_test
 def get_items_longer_than_should_exclude_strings_equal_to_max_len():
     assert get_items_longer_than(["a", "bb", "ccc"], 2) == ["ccc"], format_err_msg(
         ["ccc"], get_items_longer_than(["a", "bb", "ccc"], 2)
