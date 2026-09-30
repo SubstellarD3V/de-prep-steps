@@ -376,8 +376,7 @@ def get_northcoders_names(northcoders):
         z = x.get("name")
         if z is not None:
             nameslist.append(z)
-        else: 
-            return nameslist
+    return nameslist
         
 @run_test
 def get_northcoders_names_should_return_empty_list_if_input_is_empty():
@@ -442,11 +441,18 @@ get_user_pet_age(user) # returns 4
 
 
 def get_user_pet_age(user):
-    # Your code here
-    pass
+    if "pet" in user:
+        petage = user.get("pet")   
+        if "age" in petage:
+            age = petage['age']
+        else: 
+            age = None 
+            return age 
+    else: 
+        age = None 
+    return age 
 
-
-@skip_test
+@run_test
 def get_user_pet_age_should_return_pet_age():
     result = get_user_pet_age(
         {
@@ -459,14 +465,14 @@ def get_user_pet_age_should_return_pet_age():
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def get_user_pet_age_should_return_none_if_no_pet():
     result = get_user_pet_age({"name": "Carrie", "age": 26})
     expected = None
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def get_user_pet_age_should_return_none_if_no_pet_age():
     result = get_user_pet_age(
         {

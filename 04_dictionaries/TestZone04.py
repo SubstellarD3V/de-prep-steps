@@ -174,18 +174,66 @@ get_northcoders_names(northcoders) # returns ['Callum', 'Carrie']
 """
 
 
-def get_northcoders_names(northcoders):
-    nameslist = []
-    for x in northcoders: 
-        z = x.get("name")
-        if z is not None:
-            nameslist.append(z)
-    print(nameslist)
+#def get_northcoders_names(northcoders):
+#    nameslist = []
+#    for x in northcoders: 
+#        z = x.get("name")
+#        if z is not None:
+#            nameslist.append(z)
+#    print(nameslist)
+#    return nameslist
     
+#result = get_northcoders_names(
+#        [
+#            {"name": "Callum", "age": 31, "language": "JavaScript"},
+#            {"name": "Carrie", "age": 32, "language": "Python"},
+#        ]
+#    )
 
-result = get_northcoders_names(
-        [
-            {"name": "Callum", "age": 31, "language": "JavaScript"},
-            {"name": "Carrie", "age": 32, "language": "Python"},
-        ]
-    )
+"""
+### get_user_pet_age ###
+
+Write a function that takes a `user` dictionary that looks like this:
+
+{
+  'name': "Tom",
+  'age': 26,
+  'pet': {
+    'name': "Barney",
+    'age': 6,
+    'type': "good boy"
+  }
+}
+
+The dictionary is nested; there are dictionaries paired to keys on the user
+dictionary.
+
+The function should access the age property in the nested pet dictionary
+and return the value.
+If the user doesn't have an age for their pet the function should return None.
+
+user = {
+  'name': "Carrie",
+  'age': 26,
+  'pet': {
+    'name': "Pixie",
+    'age': 4,
+    'type': "gremlin"
+  }
+}
+
+get_user_pet_age(user) # returns 4
+"""
+
+
+def get_user_pet_age(user):
+    if "pet" in user: 
+        petage = user.get("pet")   
+        age = petage['age']
+        print(age)
+    else:
+        age = None
+        print(age)
+    return age 
+
+get_user_pet_age({"name": "Carrie", "age": 26})
