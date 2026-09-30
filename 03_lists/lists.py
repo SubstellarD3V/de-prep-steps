@@ -20,8 +20,12 @@ get_even_nums([1, 2, 3]) # returns [2]
 
 def get_even_nums(nums):
     # your code here
-    pass
-
+    even_nums = []
+    for value in nums:
+        if value % 2 == 0:
+            even_nums.append(value)
+    return even_nums
+        
 
 @run_test
 def get_even_nums_should_return_empty_list_when_no_numbers():
@@ -64,32 +68,35 @@ get_items_longer_than(['a','bb','ccc'], 4) # returns [];
 
 def get_items_longer_than(strs, max_len):
     # your code here
-    pass
-
+        corlist = []
+        for value in strs:
+            if len(value)>max_len:
+                corlist.append(value)
+        return corlist
 
 # ❗ Remember to change @skip_test to @run_test!
-@skip_test
+
 def get_items_longer_than_should_return_empty_list_when_no_strings():
     assert get_items_longer_than([], 1) == [], format_err_msg(
         [], get_items_longer_than([], 1)
     )
 
 
-@skip_test
+
 def get_items_longer_than_should_return_all_strings_longer_than_max_len():
     assert get_items_longer_than(["a", "bb"], 0) == ["a", "bb"], format_err_msg(
         ["a", "bb"], get_items_longer_than(["a", "bb"], 0)
     )
 
 
-@skip_test
+
 def get_items_longer_than_should_exclude_strings_shorter_than_max_len():
     assert get_items_longer_than(["a", "bb"], 3) == [], format_err_msg(
         [], get_items_longer_than(["a", "bb"], 3)
     )
 
 
-@skip_test
+
 def get_items_longer_than_should_exclude_strings_equal_to_max_len():
     assert get_items_longer_than(["a", "bb", "ccc"], 2) == ["ccc"], format_err_msg(
         ["ccc"], get_items_longer_than(["a", "bb", "ccc"], 2)
