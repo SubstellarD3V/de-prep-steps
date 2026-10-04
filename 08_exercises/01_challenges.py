@@ -25,7 +25,16 @@ flip_booleans([]) # returns []
 
 
 def flip_booleans(bools):
-    pass
+    invertedboollist = []
+    if bools == []:
+        return bools
+    
+    for x in bools:
+        if x == True:
+            invertedboollist.append(False)
+        elif x == False:
+            invertedboollist.append(True)
+    return(invertedboollist)
 
 
 @run_test
@@ -103,17 +112,22 @@ translate_key(student, 'prénom', 'first_name') # should return the following:
 
 
 def translate_key(student, key_to_change, translation):
-    pass
+    newstudent = student.copy()
+    for x in student:
+        if x == key_to_change: 
+            y = student.get(x)
+            newstudent.update({translation : y})
+            newstudent.pop(key_to_change)
+    return newstudent
 
-
-@skip_test
+@run_test
 def translate_key_should_return_empty_dictionary_when_passed_empty_dictionary():
     result = translate_key({}, "prénom", "first_name")
     expected = {}
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def translate_key_should_return_unchanged_if_key_not_present():
     result = translate_key(
         {"first_name": "Carla", "surname": "Bruni", "job": "Artist"},
@@ -124,7 +138,7 @@ def translate_key_should_return_unchanged_if_key_not_present():
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def translate_key_should_return_new_dictionary_with_key_translated():
     result = translate_key(
         {"prénom": "Carla", "surname": "Bruni", "job": "Artist"}, "prénom", "first_name"
@@ -133,7 +147,7 @@ def translate_key_should_return_new_dictionary_with_key_translated():
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def translate_key_should_return_new_dictionary():
     result = translate_key(
         {"first_name": "Jean", "surname": "Reno", "emploi": "Actor"}, "emploi", "job"
@@ -164,7 +178,10 @@ find_first_dentist([{'name': 'Callum', 'is_dentist': True},
 
 
 def find_first_dentist(people):
-    pass
+    isdent = {}
+    for x in people:
+        if 
+
 
 
 @skip_test

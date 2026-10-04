@@ -17,7 +17,7 @@ name = "Jurgen Klopp"
 def shout_manager():
     print(name + '!')
 
-# shout_manager()
+shout_manager()
 
 # 2.b. Uncomment line 27. What will show when we print the name variable on line 29 after calling modify_manager?
 def modify_manager():
