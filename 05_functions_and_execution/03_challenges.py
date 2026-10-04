@@ -85,8 +85,6 @@ def read_traffic_light(colour02):
         return ("STOP!")
 
     
-
-
 @run_test
 def test_read_traffic_light():
     assert read_traffic_light("green") == "GO!", format_err_msg(
