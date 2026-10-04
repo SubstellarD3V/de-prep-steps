@@ -305,13 +305,17 @@ def test_check_battery_level():
 
 
 def collect_strings(list010):
+    newlist = []
     for x in list010:
-        print(x)
-        if x == int:
-            list010.remove(x)
-            print(list010)
-    print(list010)
-    return list010
+        if x == type(int):
+            continue
+        else: 
+            newlist.append(x)
+    print(newlist)
+    return(newlist)
+        
+    
+        
 
         
 
