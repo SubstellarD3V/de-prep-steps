@@ -178,34 +178,39 @@ find_first_dentist([{'name': 'Callum', 'is_dentist': True},
 
 
 def find_first_dentist(people):
-    isdent = {}
-    for x in people:
-        if 
+    if people == []:
+        return None
+    
+    for x in people: 
+        if x.get('is_dentist') == False: 
+            continue 
+        elif x.get('is_dentist') == True:
+            return x
 
-
-
-@skip_test
+        
+        
+@run_test
 def find_first_dentist_should_return_none_when_passed_empty_list():
     result = find_first_dentist([])
     expected = None
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def find_first_dentist_should_return_none_if_person_not_dentist():
     result = find_first_dentist([{"name": "Callum", "is_dentist": False}])
     expected = None
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def find_first_dentist_should_return_person_if_dentist():
     result = find_first_dentist([{"name": "Callum", "is_dentist": True}])
     expected = {"name": "Callum", "is_dentist": True}
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def find_first_dentist_should_return_first_dentist():
     result = find_first_dentist(
         [
@@ -217,7 +222,7 @@ def find_first_dentist_should_return_first_dentist():
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def find_first_dentist_should_return_first_dentist_of_many():
     result = find_first_dentist(
         [
@@ -277,17 +282,37 @@ tally_people_in_manchester([]) # returns 0
 
 
 def tally_people_in_manchester(people):
-    pass
+    people_in_Manchester = 0
+    if people == []:
+        people_in_Manchester = 0
+        return people_in_Manchester 
+
+    c = len(people)
+    print(c)
+
+    z = people[c-1]["lives"]["city"]
+    print(z)
+    
+    if z == "Manchester" and c-1 == 0:
+        people_in_Manchester += 1
+    elif z == "Manchester" and c-1 > 0:
+        for c in people[c-1]["lives"]["city"]:
+            people_in_Manchester += 1
 
 
-@skip_test
+    return people_in_Manchester
+    
+    
+
+
+@run_test
 def tally_people_in_manchester_should_return_0_when_passed_empty_list():
     result = tally_people_in_manchester([])
     expected = 0
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def tally_people_in_manchester_should_return_0_when_no_one_in_manchester():
     result = tally_people_in_manchester(
         [
@@ -302,7 +327,7 @@ def tally_people_in_manchester_should_return_0_when_no_one_in_manchester():
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def tally_people_in_manchester_should_return_1_when_one_person_in_manchester():
     result = tally_people_in_manchester(
         [
@@ -317,7 +342,7 @@ def tally_people_in_manchester_should_return_1_when_one_person_in_manchester():
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def tally_people_in_manchester_should_return_number_of_people_in_manchester_when_passed_multiple():
     result = tally_people_in_manchester(
         [
